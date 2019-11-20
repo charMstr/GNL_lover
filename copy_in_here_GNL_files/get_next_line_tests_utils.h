@@ -6,7 +6,7 @@
 /*   By: charmstr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/18 21:07:18 by charmstr          #+#    #+#             */
-/*   Updated: 2019/11/19 17:31:57 by charmstr         ###   ########.fr       */
+/*   Updated: 2019/11/20 19:19:33 by charmstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@
 # include <fcntl.h>
 # include <sys/stat.h>
 
-void	ft_putstr_fd(char *s, int fd);
-size_t	ft_strlen(const char *s);
-void	ft_putnbr_fd(int n, int fd);
-void	ft_putchar_fd(char c, int fd);
+void	my_ft_putstr_fd(char *s, int fd);
+size_t	my_ft_strlen(const char *s);
+void	my_ft_putnbr_fd(int n, int fd);
+void	my_ft_putchar_fd(char c, int fd);
 
 #endif
