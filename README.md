@@ -1,5 +1,5 @@
 # GNL_lover
-test for the get_next_line project at school 42. (cursus42, november 2019)
+test for the get_next_line project at school 42. (cursus42, november 2019) mainly tricky tests :)
 
 
 1/	copy the 3 files get_next_line.c get_next_line_utils.c et get_next_line.h
