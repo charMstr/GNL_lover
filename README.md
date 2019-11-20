@@ -26,6 +26,11 @@ test for the get_next_line project at school 42. (cursus42, november 2019)
 	And redirect the output in a file. Then do a diff with the original file.
 	ex: $>diff -u user_output test_file3
 
+7/	the "manual_correction_sandbox" folder is there for ease. but not used.
+	you can copy the get_next_line* files there and have a main ready for you.
+	it takes as input argument the name of a file to display on stdin.
+	note: it always add a '\n' to the last read line.
+
 6/	the scripts have been set to a 777 rights for you to enjoy life at its
 	maximum.
 
