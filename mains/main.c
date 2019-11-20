@@ -6,7 +6,7 @@
 /*   By: charmstr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/18 20:54:50 by charmstr          #+#    #+#             */
-/*   Updated: 2019/11/20 19:19:40 by charmstr         ###   ########.fr       */
+/*   Updated: 2019/11/20 23:37:43 by charmstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,8 @@ int	main(int argc, char *argv[])
 			my_ft_putstr_fd(line, fd_user_output);
 			my_ft_putchar_fd('\n', fd_user_output);
 		}
+		free(line);
 	}
-	free(line);
 	close(fd_user_output);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: charmstr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 17:01:27 by charmstr          #+#    #+#             */
-/*   Updated: 2019/11/20 19:19:39 by charmstr         ###   ########.fr       */
+/*   Updated: 2019/11/20 23:38:31 by charmstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,13 @@ int	main(int argc, char *argv[])
 		return (0);
 	}
 	assert(-1 == get_next_line(-1, &line));
+	free(line);
 	assert(-1 == get_next_line(-42, &line));
+	free(line);
 	assert(-1 == get_next_line(42, &line));
+	free(line);
 	assert(-1 == get_next_line(42, NULL));
+	free(line);
 	assert(-1 == get_next_line(fd_test_me, NULL));
 	free(line);
 	return (0);

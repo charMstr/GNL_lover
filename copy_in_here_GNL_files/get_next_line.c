@@ -6,7 +6,7 @@
 /*   By: charmstr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/17 16:14:41 by charmstr          #+#    #+#             */
-/*   Updated: 2019/11/20 16:25:23 by charmstr         ###   ########.fr       */
+/*   Updated: 2019/11/20 23:28:12 by charmstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ int	get_next_line(int fd, char **line)
 	if (!line)
 		if (!manage_link(fd, &head, REMOVE))
 			return (-1);
+	*line = NULL;
 	if (!head)
 		if (!(head = new_link(fd)))
 			return (-1);
@@ -147,8 +148,7 @@ int	update_line(char **line, char *str2, t_fd *link, int *found)
 	j = -1;
 	while (str2[i] && (str2[i] != END_LINE_CHAR))
 		i++;
-	if (str2[i] == END_LINE_CHAR)
-		*found = 1;
+	*found = (str2[i] == END_LINE_CHAR) ? 1 : 0;
 	if (!(*line = (char*)malloc(sizeof(char) * (link->len_line + i + 1))))
 		return (-1);
 	(*line)[link->len_line + i] = '\0';
@@ -160,7 +160,8 @@ int	update_line(char **line, char *str2, t_fd *link, int *found)
 			(*line)[j] = str2[j - link->len_line];
 	}
 	link->len_line = link->len_line + i;
-	free(tmp);
+	if (tmp)
+		free(tmp);
 	return (i);
 }
 

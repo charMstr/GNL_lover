@@ -6,7 +6,7 @@
 /*   By: charmstr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/17 19:50:33 by charmstr          #+#    #+#             */
-/*   Updated: 2019/11/20 19:19:37 by charmstr         ###   ########.fr       */
+/*   Updated: 2019/11/20 23:44:01 by charmstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int	main()
 			my_ft_putstr_fd(line, 1);
 			my_ft_putchar_fd('\n', 1);
 		}
+		free(line);
 	}
 	my_ft_putstr_fd("<--------END\nyour GNL returned:", 1);
 	my_ft_putnbr_fd(result, 1);
@@ -49,7 +50,6 @@ int	main()
 	my_ft_putstr_fd("<--------END\n", 1);
 	my_ft_putnbr_fd(result, 1);
 	my_ft_putstr_fd("\n", 1);
-	free(line);
 	return (0);
 }
 

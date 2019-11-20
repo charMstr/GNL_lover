@@ -16,11 +16,11 @@ do
 	if [ $MAIN_NAME == "mains/main.c" ]
 	then
 		echo "\n\n\tbuilding with main: ${MAIN_BG}${BLACK_FG}\t\t\t${MAIN_NAME}\t\t\t${CLEAR_COLOR}"
-		for TEST in `seq 1 8`
+		for TEST in `seq 1 9`
 		do
 			TEST_FILE=./test_files_GNL/test_file${TEST}
 			echo "\n\n\t\ttest_file is:\t\t${TEST_FILE_BG}${BLACK_FG}\t\ttest_file${TEST}\t\t${CLEAR_COLOR}"
-			for SIZE in `seq 1 10`
+			for SIZE in `seq 1 5`
 			do
 				make re MAIN=${MAIN_NAME} BUF_SIZE=${SIZE}
 				./get_next_line ${TEST_FILE}
@@ -28,28 +28,43 @@ do
 				RESULT=$?
 				if [ ${RESULT} -eq 0 ]
 				then
-					echo "when BUFFER_SIZE=${SIZE} \033[32mOK\033[0m"
+					echo "when BUFFER_SIZE=${SIZE}:\t\033[32mOK with only '\ n' or file ending with a '\ n'\033[0m"
 				else
-					echo "when BUFFER_SIZE=${SIZE} \033[31mKO\033[0m"
+					echo "when BUFFER_SIZE=${SIZE}:\t\033[31mKO with only '\ n' or file ending with a '\ n'\033[0m"
 				fi
 			done
 		done
-	elif [ ${MAIN_NAME} == "mains/main_no_end_of_line_at_end.c" ]
-	then
-		echo "\n\n\tbuilding with main: ${MAIN_BG}${BLACK_FG}\t\t\t${MAIN_NAME}\t\t\t${CLEAR_COLOR}"
-		SIZE=4
-		TEST_FILE=./test_files_GNL/test_file9
-		echo "\n\n\t\ttest_file is:\t\t${TEST_FILE_BG}${BLACK_FG}\t\t${TEST_FILE}\t\t${CLEAR_COLOR} BUFFER_SIZE=${SIZE}"
-		make re MAIN=${MAIN_NAME} BUF_SIZE=${SIZE}	
+		SIZE=1024
+		make re MAIN=${MAIN_NAME} BUF_SIZE=${SIZE}
 		./get_next_line ${TEST_FILE}
 		diff -u user_output ${TEST_FILE}
 		RESULT=$?
 		if [ ${RESULT} -eq 0 ]
 		then
-			echo "\033[32mGNL OK with no end of line present\033[0m"
+			echo "\t\twhen BUFFER_SIZE= \033[48;5;1m\033[38;5;255m ${SIZE} \033[0m : \033[32mOK\033[0m"
 		else
-			echo "\033[31mGNL KO with no end of line present\033[0m"
+			echo "\t\twhen BUFFER_SIZE= \033[48;5;1m\033[38;5;255m ${SIZE} \033[0m : \033[32mOK\033[0m"
 		fi
+	elif [ ${MAIN_NAME} == "mains/main_no_end_of_line_at_end.c" ] 							########						#modify the iF in a elif
+	then
+		for TEST in `seq 10 17`
+		do
+			TEST_FILE=./test_files_GNL/test_file${TEST}
+			echo "\n\n\t\ttest_file is:\t\t${TEST_FILE_BG}${BLACK_FG}\t\ttest_file${TEST}\t\t${CLEAR_COLOR}"
+			for SIZE in `seq 3 5`
+			do
+				make re MAIN=${MAIN_NAME} BUF_SIZE=${SIZE}
+				./get_next_line ${TEST_FILE}
+				diff -u user_output ${TEST_FILE}
+				RESULT=$?
+				if [ ${RESULT} -eq 0 ]
+				then
+					echo "when BUFFER_SIZE=${SIZE}:\t\033[32mGNL OK with no '\ n' present at end of file\033[0m"
+				else
+					echo "when BUFFER_SIZE=${SIZE}:\t\033[31mGNL KO with no '\ n' present at end of file\033[0m"
+				fi
+			done
+		done
 	elif [ ${MAIN_NAME} == "mains/main_INPUTS_WRONG.c" ]
 	then
 		echo "\n\n\tbuilding with main: ${MAIN_BG}${BLACK_FG}\t\t\t${MAIN_NAME}\t\t\t${CLEAR_COLOR}"
@@ -61,9 +76,9 @@ do
 		RESULT=$?
 		if [ ${RESULT} -eq 0 ]
 		then
-			echo "\033[32mGNL OK with WRONG_INPUTS\033[0m"
+			echo "\when BUFFER_SIZE=${SIZE}:\t\033[32mGNL OK with WRONG_INPUTS\033[0m"
 		else
-			echo "\033[31mGNL KO with WRONG INPUTS\033[0m"
+			echo "when BUFFER_SIZE=${SIZE}:\t\033[31mGNL KO with WRONG INPUTS\033[0m"
 		fi
 	elif [ ${MAIN_NAME} == "mains/main_STDIN_FILENO.c" ];
 	then
