@@ -6,7 +6,7 @@
 /*   By: charmstr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/17 22:10:20 by charmstr          #+#    #+#             */
-/*   Updated: 2019/11/21 02:00:28 by charmstr         ###   ########.fr       */
+/*   Updated: 2019/11/21 02:22:17 by charmstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	*fake_malloc(size_t size)
 {
+	size = (size_t)size;
 	return (NULL);
 }
 
