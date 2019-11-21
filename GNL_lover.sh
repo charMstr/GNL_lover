@@ -36,9 +36,9 @@ do
 				RESULT=$?
 				if [ ${RESULT} -eq 0 ]
 				then
-					echo "when BUFFER_SIZE=${SIZE}:\t\033[32mOK with only '\ n' or file ending with a '\ n'\033[0m"
+					echo "when BUFFER_SIZE=${SIZE}:\t\033[32mOK with file ending with a '\ n'\033[0m"
 				else
-					echo "when BUFFER_SIZE=${SIZE}:\t\033[31mKO with only '\ n' or file ending with a '\ n'\033[0m"
+					echo "when BUFFER_SIZE=${SIZE}:\t\033[31mKO with file ending with a '\ n'\033[0m"
 				fi
 			done
 		done
@@ -68,9 +68,9 @@ do
 				RESULT=$?
 				if [ ${RESULT} -eq 0 ]
 				then
-					echo "when BUFFER_SIZE=${SIZE}:\t\033[32mGNL OK with no '\ n' present at end of file\033[0m"
+					echo "when BUFFER_SIZE=${SIZE}:\t\033[32mGNL OK with no '\ n' at end of file\033[0m"
 				else
-					echo "when BUFFER_SIZE=${SIZE}:\t\033[31mGNL KO with no '\ n' present at end of file\033[0m"
+					echo "when BUFFER_SIZE=${SIZE}:\t\033[31mGNL KO with no '\ n' at end of file\033[0m"
 				fi
 			done
 		done
@@ -137,7 +137,7 @@ fi
 
 echo "\n\n\n 🔎 check how many static variables were declared: 🔎\n"
 
-RESULT=`cat copy_in_here_GNL_files/* | grep -n --colour "^.static" | wc -l`
+RESULT=`cat copy_in_here_GNL_files/*.c | grep -n --colour "^.static.*;$" | wc -l`
 if [ ${RESULT} == 0 ]
 then
 	echo "\033[38;5;1mWTF!?\033[0m"
