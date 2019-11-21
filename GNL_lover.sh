@@ -89,6 +89,16 @@ do
 		else
 			echo "when BUFFER_SIZE=${SIZE}:\t\033[31mGNL KO with WRONG INPUTS\033[0m"
 		fi
+		SIZE=0
+		make re MAIN=${MAIN_NAME} BUF_SIZE=${SIZE}	
+		./get_next_line ${TEST_FILE}
+		RESULT=$?
+		if [ ${RESULT} -eq 0 ]
+		then
+			echo "when BUFFER_SIZE=${SIZE}:\t\033[32mGNL OK with BUFFER_SIZE = 0\033[0m"
+		else
+			echo "when BUFFER_SIZE=${SIZE}:\t\033[31mGNL KO with BUFFER_SIZE = 0\033[0m"
+		fi
 	elif [ ${MAIN_NAME} == "mains/main_dev_null.c" ];
 	then
 		echo "\n\n\tbuilding with main: ${MAIN_BG}${BLACK_FG}\t\t${MAIN_NAME}\t\t\t${CLEAR_COLOR}"

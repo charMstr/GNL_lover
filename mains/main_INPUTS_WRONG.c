@@ -6,7 +6,7 @@
 /*   By: charmstr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 17:01:27 by charmstr          #+#    #+#             */
-/*   Updated: 2019/11/21 01:13:57 by charmstr         ###   ########.fr       */
+/*   Updated: 2019/11/21 22:34:04 by charmstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,15 +33,20 @@ int	main(int argc, char *argv[])
 		my_ft_putstr_fd("filedescriptor.\n", 2);
 		return (0);
 	}
-	assert(-1 == get_next_line(-1, &line));
-	free(line);
-	assert(-1 == get_next_line(-42, &line));
-	free(line);
-	assert(-1 == get_next_line(42, &line));
-	free(line);
-	assert(-1 == get_next_line(42, NULL));
-	free(line);
-	assert(-1 == get_next_line(fd_test_me, NULL));
+	if (BUFFER_SIZE == 0)
+		assert(-1 == get_next_line(fd_test_me, &line));
+	else
+	{
+		assert(-1 == get_next_line(-1, &line));
+		free(line);
+		assert(-1 == get_next_line(-42, &line));
+		free(line);
+		assert(-1 == get_next_line(42, &line));
+		free(line);
+		assert(-1 == get_next_line(42, NULL));
+		free(line);
+		assert(-1 == get_next_line(fd_test_me, NULL));
+	}
 	free(line);
 	close(fd_test_me);
 	return (0);
