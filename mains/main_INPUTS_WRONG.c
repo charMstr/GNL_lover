@@ -6,7 +6,7 @@
 /*   By: charmstr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 17:01:27 by charmstr          #+#    #+#             */
-/*   Updated: 2019/11/20 23:38:31 by charmstr         ###   ########.fr       */
+/*   Updated: 2019/11/21 01:13:57 by charmstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ int	main(int argc, char *argv[])
 
 	line = NULL;
 	result = 1;
-	argv[0] = (char *)argv[0];
 	if (argc != 2)
 	{
 		my_ft_putstr_fd("failed to provide the file to be opened as arg\n", 2);
@@ -44,5 +43,6 @@ int	main(int argc, char *argv[])
 	free(line);
 	assert(-1 == get_next_line(fd_test_me, NULL));
 	free(line);
+	close(fd_test_me);
 	return (0);
 }

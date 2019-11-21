@@ -1,7 +1,6 @@
 #!/bin/sh
 
-REMOVE_FG="\033[38;5;196m"
-CREAT_FG="\033[38;5;46m"
+WEIRD_BG="\033[48;5;203m"
 BLACK_FG="\033[38;5;0m"
 BLACK_BG="\033[48;5;0m"
 
@@ -41,12 +40,13 @@ do
 		RESULT=$?
 		if [ ${RESULT} -eq 0 ]
 		then
-			echo "\t\twhen BUFFER_SIZE= \033[48;5;1m\033[38;5;255m ${SIZE} \033[0m : \033[32mOK\033[0m"
+			echo "\t\twhen BUFFER_SIZE= ⚠️  ${WEIRD_BG}${BLACK_FG} ${SIZE} ${CLEAR_COLOR} ⚠️ : \033[32mOK${CLEAR_COLOR}"
 		else
-			echo "\t\twhen BUFFER_SIZE= \033[48;5;1m\033[38;5;255m ${SIZE} \033[0m : \033[32mOK\033[0m"
+			echo "\t\twhen BUFFER_SIZE= ${WEIRD_BG}${BLACK_FG} ${SIZE} ${CLEAR_COLOR} : \033[32mOK${CLEAR_COLOR}"
 		fi
 	elif [ ${MAIN_NAME} == "mains/main_no_end_of_line_at_end.c" ] 							########						#modify the iF in a elif
 	then
+		echo "\n\n\tbuilding with main: ${MAIN_BG}${BLACK_FG}\t\t\t${MAIN_NAME}\t\t\t${CLEAR_COLOR}"
 		for TEST in `seq 10 17`
 		do
 			TEST_FILE=./test_files_GNL/test_file${TEST}
@@ -76,16 +76,31 @@ do
 		RESULT=$?
 		if [ ${RESULT} -eq 0 ]
 		then
-			echo "\when BUFFER_SIZE=${SIZE}:\t\033[32mGNL OK with WRONG_INPUTS\033[0m"
+			echo "when BUFFER_SIZE=${SIZE}:\t\033[32mGNL OK with WRONG_INPUTS\033[0m"
 		else
 			echo "when BUFFER_SIZE=${SIZE}:\t\033[31mGNL KO with WRONG INPUTS\033[0m"
+		fi
+	elif [ ${MAIN_NAME} == "mains/main_dev_null.c" ];
+	then
+		echo "\n\n\tbuilding with main: ${MAIN_BG}${BLACK_FG}\t\t\t${MAIN_NAME}\t\t\t${CLEAR_COLOR}"
+		SIZE=12
+		TEST_FILE=/dev/null
+		echo "\n\n\t\ttest_file is:\t\t${TEST_FILE_BG}${BLACK_FG}\t\t${WEIRD_BG}${BLACK_FG}${TEST_FILE}${TEST_FILE_BG}${BLACK_FG}\t\t${CLEAR_COLOR} BUFFER_SIZE=${SIZE}"
+		make re MAIN=${MAIN_NAME} BUF_SIZE=${SIZE}	
+		./get_next_line ${TEST_FILE}
+		RESULT=$?
+		if [ ${RESULT} -eq 0 ]
+		then
+			echo "when BUFFER_SIZE=${SIZE}:\t\033[32mGNL OK with /dev/null\033[0m"
+		else
+			echo "when BUFFER_SIZE=${SIZE}:\t\033[31mGNL KO with /dev/null\033[0m"
 		fi
 	elif [ ${MAIN_NAME} == "mains/main_STDIN_FILENO.c" ];
 	then
 		echo "\n\n\tbuilding with main: ${MAIN_BG}${BLACK_FG}\t\t\t${MAIN_NAME}\t\t\t${CLEAR_COLOR}"
 		SIZE=12
 		TEST_FILE=/dev/stdin
-		echo "\n\n\t\ttest_file is:\t\t${TEST_FILE_BG}${BLACK_FG}\t\t${TEST_FILE}\t\t${CLEAR_COLOR} BUFFER_SIZE=${SIZE}"
+		echo "\n\n\t\ttest_file is:\t\t${TEST_FILE_BG}${BLACK_FG}\t\t${WEIRD_BG}${BLACK_FG}${TEST_FILE}${TEST_FILE_BG}${BLACK_FG}\t\t${CLEAR_COLOR} BUFFER_SIZE=${SIZE}"
 		make re MAIN=${MAIN_NAME} BUF_SIZE=${SIZE}	
 		./get_next_line
 	fi
