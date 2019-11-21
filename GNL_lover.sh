@@ -105,14 +105,35 @@ do
 		./get_next_line
 	fi
 done
-echo "\n\n\tcheck if the read function is called with the BUFFER_SIZE defined argument:\n"
+
+echo "\n\n\n 🔎 check if the read function is called with 'BUFFER_SIZE': 🔎\n"
 cat copy_in_here_GNL_files/get_next_line.c copy_in_here_GNL_files/get_next_line_utils.c | grep "read(" | grep -n --colour "BUFFER_SIZE"
 RESULT=$?
 if [ ${RESULT} == 0 ]
 then
-	echo "\t=====> ✅\n"
+	echo "\033[38;5;2m\n\t=====> ✅\n\033[0m"
 else
-	echo "\t=====> ❌\n"
+	echo "\033[38;5;1m\n\t=====> ❌\n\033[0m"
+fi
+
+echo "\n\n\n 🔎 check if a global was declared: 🔎\n"
+
+RESULT=`cat copy_in_here_GNL_files/* | grep -n --colour "global" | wc -l`
+if [ ${RESULT} == 0 ]
+then
+	echo "\033[38;5;2m\t=====> ✅\t 0 \033[0mglobal variable used."
+else
+	echo "\033[38;5;1m${RESULT}${CLEAR_COLOR} global variable(s) used.\n"	
+fi
+
+echo "\n\n\n 🔎 check how many static variables were declared: 🔎\n"
+
+RESULT=`cat copy_in_here_GNL_files/* | grep -n --colour "^.static" | wc -l`
+if [ ${RESULT} == 0 ]
+then
+	echo "\033[38;5;1mWTF!?\033[0m"
+else
+	echo "\033[38;5;2m\t=====> ✅ ${RESULT}${CLEAR_COLOR} static variable(s) used.\n"	
 fi
 
 rm user_output
