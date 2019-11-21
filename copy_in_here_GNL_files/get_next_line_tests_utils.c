@@ -6,11 +6,16 @@
 /*   By: charmstr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/17 22:10:20 by charmstr          #+#    #+#             */
-/*   Updated: 2019/11/20 19:19:35 by charmstr         ###   ########.fr       */
+/*   Updated: 2019/11/21 02:00:28 by charmstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line_tests_utils.h"
+
+void	*fake_malloc(size_t size)
+{
+	return (NULL);
+}
 
 void	my_ft_putstr_fd(char *s, int fd)
 {
