@@ -10,6 +10,15 @@ MAIN_BG="\033[48;5;39m"
 SIZE_BG="\033[48;5;11m"
 TEST_FILE_BG="\033[48;5;172m"
 
+FOLD="./copy_in_here_GNL_files/"
+
+if [ ! -f "${FOLD}get_next_line.c" ] || [ ! -f "${FOLD}get_next_line_utils.c" ] || [ ! -f "${FOLD}get_next_line.h" ]
+then
+	echo "get_next_line.c or\nget_next_line_utils.c or\nget_next_line.h\033[38;5;1m is missing${CLEAR_COLOR} in folder '${FOLD}'"
+	echo "\n\t🥰  RTFM 🥰 "
+	exit
+fi
+
 for MAIN_NAME in  mains/*
 do
 	if [ $MAIN_NAME == "mains/main.c" ]
