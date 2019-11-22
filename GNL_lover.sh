@@ -140,19 +140,33 @@ echo "\n\n\n 🔎 check if a global was declared: 🔎\n"
 RESULT=`cat copy_in_here_GNL_files/* | grep -n --colour "global" | wc -l`
 if [ ${RESULT} == 0 ]
 then
-	echo "\033[38;5;2m\t=====> ✅\t 0 \033[0mglobal variable used."
+	echo "\033[38;5;2m\t=====> ✅\t 0 \033[0mglobal variable used.\n"
 else
 	echo "\033[38;5;1m${RESULT}${CLEAR_COLOR} global variable(s) used.\n"	
 fi
 
 echo "\n\n\n 🔎 check how many static variables were declared: 🔎\n"
 
-RESULT=`cat copy_in_here_GNL_files/*.c | grep -n --colour "^.static.*;$" | wc -l`
-if [ ${RESULT} == 0 ]
+RESULT=`cat copy_in_here_GNL_files/get_next_line.c copy_in_here_GNL_files/get_next_line_utils.c | grep -n --colour "^.static.*;$" | wc -l`
+if [ ${RESULT} != 0 ]
 then
-	echo "\033[38;5;1mWTF!?\033[0m"
-else
-	echo "\033[38;5;2m\t=====> ✅ ${RESULT}${CLEAR_COLOR} static variable(s) used.\n"	
+	if [ ${RESULT} == 1 ]
+	then
+		echo "\033[38;5;2m\t=====> ✅ ${RESULT}${CLEAR_COLOR} static variable used in basic files.\n"	
+	else
+		echo "\033[38;5;2m\t=====> ✅ ${RESULT}${CLEAR_COLOR} static variables used in basic files.\n"	
+	fi
+fi
+
+RESULT=`cat copy_in_here_GNL_files/get_next_line_bonus.c copy_in_here_GNL_files/get_next_line_utils_bonus.c | grep -n --colour "^.static.*;$" | wc -l`
+if [ ${RESULT} != 0 ]
+then
+	if [ ${RESULT} == 1 ]
+	then
+		echo "\033[38;5;2m\t=====> ✅ ${RESULT}${CLEAR_COLOR} static variable used in bonus files.\n"	
+	else
+		echo "\033[38;5;2m\t=====> ✅ ${RESULT}${CLEAR_COLOR} static variables used in bonus files.\n"
+	fi
 fi
 
 rm user_output
