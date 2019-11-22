@@ -3,16 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   main_dev_null.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: charmstr <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: charmstr <charmstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/21 01:05:39 by charmstr          #+#    #+#             */
-/*   Updated: 2019/11/21 01:16:56 by charmstr         ###   ########.fr       */
+/*   Created: 2019/11/22 04:54:10 by charmstr          #+#    #+#             */
+/*   Updated: 2019/11/22 04:54:13 by charmstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "../copy_in_here_GNL_files/get_next_line.h"
-#include "../copy_in_here_GNL_files/get_next_line_tests_utils.h"
+#include "../copy_in_here_GNL_files/GNL_TESTS.h"
 
 int	main(int argc, char *argv[])
 {

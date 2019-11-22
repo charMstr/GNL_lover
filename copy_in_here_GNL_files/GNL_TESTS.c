@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_tests_utils.c                        :+:      :+:    :+:   */
+/*   GNL_TESTS.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: charmstr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/17 22:10:20 by charmstr          #+#    #+#             */
-/*   Updated: 2019/11/21 02:22:17 by charmstr         ###   ########.fr       */
+/*   Created: 2019/11/22 03:54:29 by charmstr          #+#    #+#             */
+/*   Updated: 2019/11/22 03:57:18 by charmstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line_tests_utils.h"
+#include "GNL_TESTS.h"
 
 void	*fake_malloc(size_t size)
 {

@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   main_no_end_of_line_at_end.c                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: charmstr <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: charmstr <charmstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/20 17:10:03 by charmstr          #+#    #+#             */
-/*   Updated: 2019/11/21 01:16:09 by charmstr         ###   ########.fr       */
+/*   Created: 2019/11/22 04:54:36 by charmstr          #+#    #+#             */
+/*   Updated: 2019/11/22 04:54:41 by charmstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../copy_in_here_GNL_files/get_next_line.h"
-#include "../copy_in_here_GNL_files/get_next_line_tests_utils.h"
+#include "../copy_in_here_GNL_files/GNL_TESTS.h"
 
 int	main(int argc, char *argv[])
 {

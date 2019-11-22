@@ -169,5 +169,24 @@ then
 	fi
 fi
 
+
+if [ ${RESULT} -gt 0 ]
+then
+	echo "  ===>  BONUS FILES PRESENT... "
+	echo  ""
+	for i in `seq 5 0`
+	do
+		echo "\033[1A\033[38;5;10m$i\033[m"
+		sleep 0.6
+	done
+	echo "\033[1A "
+	echo "  ===>  START "
+	sleep 0.5
+	make fclean
+	make bonus MAIN="mains/main_multy_fd.c"
+	./get_next_line mains/main.c mains/main_INPUTS_WRONG.c mains/main_STDIN_FILENO.c mains/main_dev_null.c
+	echo "  ===>  END "
+fi
+
 rm user_output
 make fclean

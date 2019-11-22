@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   main_multy_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: charmstr <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: charmstr <charmstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/21 04:48:04 by charmstr          #+#    #+#             */
-/*   Updated: 2019/11/21 05:17:34 by charmstr         ###   ########.fr       */
+/*   Created: 2019/11/22 04:54:20 by charmstr          #+#    #+#             */
+/*   Updated: 2019/11/22 04:54:25 by charmstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../copy_in_here_GNL_files/get_next_line.h"
-#include "../copy_in_here_GNL_files/get_next_line_tests_utils.h"
+#include "../copy_in_here_GNL_files/GNL_TESTS.h"
 
 int	break_and_exit(void)
 {
@@ -81,7 +81,7 @@ int	main(int argc, char *argv[])
 	if ((fd4 = open_fd(argv[4])) == -1)
 		return (0);
 	i = 0;
-	while (i < 6)
+	while (i < 11)
 	{
 		assert(-1 != (result = get_fd(&line, fd1, fd_user_output)));
 		assert(-1 != (result = get_fd(&line, fd2, fd_user_output)));
@@ -89,12 +89,11 @@ int	main(int argc, char *argv[])
 		assert(-1 != (result = get_fd(&line, fd4, fd_user_output)));
 		i++;
 	}
-	my_ft_putstr_fd("\n---------> multi fd: END OF TEST <---------\n", 1);
 	system("cat ./user_output");
+	close(fd_user_output);
 	close(fd1);
 	close(fd2);
 	close(fd3);
 	close(fd4);
-	close(fd_user_output);
 	return (0);
 }

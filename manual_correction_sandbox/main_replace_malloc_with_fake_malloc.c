@@ -6,12 +6,12 @@
 /*   By: charmstr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/21 02:01:27 by charmstr          #+#    #+#             */
-/*   Updated: 2019/11/21 17:48:08 by charmstr         ###   ########.fr       */
+/*   Updated: 2019/11/22 04:02:16 by charmstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include "get_next_line_tests_utils.h"
+#include "GNL_TESTS.h"
 
 int	main(int argc, char *argv[])
 {

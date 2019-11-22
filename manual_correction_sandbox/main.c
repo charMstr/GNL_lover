@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   light_main.c                                       :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: charmstr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/19 16:47:28 by charmstr          #+#    #+#             */
-/*   Updated: 2019/11/21 17:47:41 by charmstr         ###   ########.fr       */
+/*   Created: 2019/11/22 04:02:03 by charmstr          #+#    #+#             */
+/*   Updated: 2019/11/22 04:02:08 by charmstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include "get_next_line_tests_utils.h"
+#include "GNL_TESTS.h"
 
 int	main(int argc, char *argv[])
 {
