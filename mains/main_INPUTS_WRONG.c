@@ -6,7 +6,7 @@
 /*   By: charmstr <charmstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/22 04:53:26 by charmstr          #+#    #+#             */
-/*   Updated: 2019/11/22 04:53:34 by charmstr         ###   ########.fr       */
+/*   Updated: 2019/11/23 20:43:30 by charmstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,15 +39,20 @@ int	main(int argc, char *argv[])
 	{
 		assert(-1 == get_next_line(-1, &line));
 		free(line);
+		line = NULL;
 		assert(-1 == get_next_line(-42, &line));
 		free(line);
+		line = NULL;
 		assert(-1 == get_next_line(42, &line));
 		free(line);
+		line = NULL;
 		assert(-1 == get_next_line(42, NULL));
 		free(line);
+		line = NULL;
 		assert(-1 == get_next_line(fd_test_me, NULL));
 	}
 	free(line);
+	line = NULL;
 	close(fd_test_me);
 	return (0);
 }
