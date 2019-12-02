@@ -20,8 +20,12 @@ mainly combinatory tricky tests :)
 	- single static variable is used? (bonus)
 
 4/	keep in mind that it does use the -g -fsanitize=address at each compile
-	time. therefore it won't work fine if there is leaks in your functions.
-	leaks will probably occured in each single tests if they are not isolated.
+	time. therefore it won't work fine if there is erors in memory management
+	in some of your functions.
+	therefore warnings will probably occur in each single tests if they are not
+	isolated problems
+	Keep also in mind that it doesnt check for leaks... you should check for
+	leaks even in the worst case scenarios like when gnl should returns -1.
 
 5/	what it does technicaly.
 	This GNL_lover script will use a makefile and compile many times with
